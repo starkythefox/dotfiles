@@ -1,14 +1,14 @@
 Host github
-	Host github.com
+    Host github.com
     User git
     IdentityFile ~/.ssh/id_github
 	
 Host gitlab
-	HostName gitlab.com
+    HostName gitlab.com
     User git
     IdentityFile ~/.ssh/id_gitlab
 	
 Host bitbucket
-	HostName bitbucket.org
+    HostName bitbucket.org
     User git
     IdentityFile ~/.ssh/id_bitbucket
