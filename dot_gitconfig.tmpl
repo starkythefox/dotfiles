@@ -6,6 +6,7 @@
 {{- end }}
 [core]
 	autocrlf = {{ .git_autocrlf }}
+	editor = nvim
 [alias]
 	lg = log --graph --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%ad %C(auto,green)%aN %C(auto,reset)%s%C(auto,red)% gD% D' --abbrev-commit --date=relative --all
 {{- if eq .chezmoi.os "windows" }}
