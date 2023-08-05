@@ -1,0 +1,51 @@
+{{ if ne .chezmoi.os "windows" }}
+AppData/Local/nvim/init.lua.tmpl
+AppData/Local/nvim/after/plugin/colors.lua.tmpl
+AppData/Local/nvim/after/plugin/fugitive.lua.tmpl
+AppData/Local/nvim/after/plugin/harpoon.lua.tmpl
+AppData/Local/nvim/after/plugin/lsp.lua.tmpl
+AppData/Local/nvim/after/plugin/null-ls.lua.tmpl
+AppData/Local/nvim/after/plugin/refactoring.lua.tmpl
+AppData/Local/nvim/after/plugin/sonarlint.lua.tmpl
+AppData/Local/nvim/after/plugin/telescope.lua.tmpl
+AppData/Local/nvim/after/plugin/treesitter-context.lua.tmpl
+AppData/Local/nvim/after/plugin/treesitter.lua.tmpl
+AppData/Local/nvim/after/plugin/undotree.lua.tmpl
+AppData/Local/nvim/after/plugin/which-key.lua.tmpl
+AppData/Local/nvim/lua/starky/init.lua.tmpl
+AppData/Local/nvim/lua/starky/packer.lua.tmpl
+AppData/Local/nvim/lua/starky/remap.lua.tmpl
+AppData/Roaming/gnupg/common.conf.tmpl
+AppData/Roaming/gnupg/dirmngr.conf.tmpl
+AppData/Roaming/gnupg/common.conf.tmpl
+AppData/Roaming/gnupg/dirmngr.conf.tmpl
+AppData/Roaming/gnupg/gpa.conf.tmpl
+AppData/Roaming/gnupg/gpg-agent.conf.tmpl
+AppData/Roaming/gnupg/gpg.conf.tmpl
+{{ end }}
+{{ if ne .chezmoi.os "linux" }}
+.config/nvim/init.lua.tmpl
+.config/nvim/after/plugin/colors.lua.tmpl
+.config/nvim/after/plugin/fugitive.lua.tmpl
+.config/nvim/after/plugin/harpoon.lua.tmpl
+.config/nvim/after/plugin/lsp.lua.tmpl
+.config/nvim/after/plugin/null-ls.lua.tmpl
+.config/nvim/after/plugin/refactoring.lua.tmpl
+.config/nvim/after/plugin/sonarlint.lua.tmpl
+.config/nvim/after/plugin/telescope.lua.tmpl
+.config/nvim/after/plugin/treesitter-context.lua.tmpl
+.config/nvim/after/plugin/treesitter.lua.tmpl
+.config/nvim/after/plugin/undotree.lua.tmpl
+.config/nvim/after/plugin/which-key.lua.tmpl
+.config/nvim/lua/starky/init.lua.tmpl
+.config/nvim/lua/starky/packer.lua.tmpl
+.config/nvim/lua/starky/remap.lua.tmpl
+.config/nvim/lua/starky/set.lua.tmpl
+.gnupg/common.conf.tmpl
+.gnupg/dirmngr.conf.tmpl
+.gnupg/common.conf.tmpl
+.gnupg/dirmngr.conf.tmpl
+.gnupg/gpa.conf.tmpl
+.gnupg/gpg-agent.conf.tmpl
+.gnupg/gpg.conf.tmpl
+{{ end }}
