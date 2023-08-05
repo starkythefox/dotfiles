@@ -25,5 +25,5 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
-vim.g.python3_host_prog = {{ .neovim_python3_host_prog | squote }}
+{{ if (index . "neovim_python3_host_prog") }}vim.g.python3_host_prog = {{ .neovim_python3_host_prog | squote }}{{ end }}
 
