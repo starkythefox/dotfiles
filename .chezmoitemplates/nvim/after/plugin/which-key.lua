@@ -37,6 +37,7 @@ wk.register({
         u = {'Undo tree'},
         y = {'Yank into system clipboard'},
         Y = {'Yank to end of line into system clipboard'},
+        x = {'Toggle Trouble quickfix list'},
     },
     g = {
         name = 'LSP',

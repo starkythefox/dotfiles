@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
         as = 'nightfox'
     }
 
+    use('folke/trouble.nvim')
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('nvim-treesitter/nvim-treesitter-context')
     use('nvim-treesitter/playground')
