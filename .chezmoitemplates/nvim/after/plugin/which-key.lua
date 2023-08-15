@@ -34,7 +34,7 @@ wk.register({
             bh = {'Extract block'},
             bf = {'Extract block to file'},
         },
-        u = { 'Undo tree'},
+        u = {'Undo tree'},
         y = {'Yank into system clipboard'},
         Y = {'Yank to end of line into system clipboard'},
     },
