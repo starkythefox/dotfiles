@@ -58,6 +58,7 @@ wk.register({
     N = {'Move to previous search term, cursor in the middle'},
     ['<C-d>'] = {'Half-page jump down, cursor in middle'},
     ['<C-e>'] = {'Open Harpoon quick menu'},
+{{ if eq .chezmoi.os "linux"}}    ['<C-h>'] = {'Fuzzy find projects'},{{- end}}
     ['<C-j>'] = {'Next item in quickfix list'},
     ['<C-n>'] = {'(LSP) Select next item'},
     ['<C-k>'] = {'Previous item in quickfix list'},
