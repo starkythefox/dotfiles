@@ -56,6 +56,15 @@ return require('packer').startup(function(use)
     }
 
     use {
+        'mfussenegger/nvim-dap',
+        requires = {
+            {'rcarriga/nvim-dap-ui'},
+            {'williamboman/mason.nvim'},
+            {'jay-babu/mason-nvim-dap.nvim'},
+        }
+    }
+
+    use {
         'https://gitlab.com/schrieveslaach/sonarlint.nvim.git',
         as = 'sonarlint.nvim',
         branch = 'main',
