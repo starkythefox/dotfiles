@@ -40,6 +40,10 @@ return require('packer').startup(function(use)
                 end,
             },
             {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            {
+                'j-hui/fidget.nvim',
+                tag = 'legacy',
+            },
 
             -- Autocompletion
             {'hrsh7th/nvim-cmp'},     -- Required
@@ -49,9 +53,11 @@ return require('packer').startup(function(use)
     }
 
     use {
-        'jose-elias-alvarez/null-ls.nvim',
+        'jay-babu/mason-null-ls.nvim',
         requires = {
-            {'nvim-lua/plenary.nvim'}
+            {'williamboman/mason.nvim'},
+            {'jose-elias-alvarez/null-ls.nvim'},
+            {'nvim-lua/plenary.nvim'},
         }
     }
 
