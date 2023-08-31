@@ -27,8 +27,6 @@ return require('packer').startup(function(use)
     use('ThePrimeagen/harpoon')
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
-    use('Verf/telescope-everything.nvim')
-    -- use('Exafunction/codeium.vim')
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
