@@ -1,4 +1,3 @@
-vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, {desc = 'View project explorer'})
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", {desc = 'Move block up'})
