@@ -68,6 +68,8 @@ require('lazy').setup({
         branch = '0.1.x',
         dependencies = {
             {'nvim-lua/plenary.nvim'},
+{{ if .telescope_fzf_able }}            {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'},{{ end }}
+            {'nvim-telescope/telescope-dap.nvim'},
         }
     },
 

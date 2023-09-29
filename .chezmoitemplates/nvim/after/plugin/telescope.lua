@@ -9,6 +9,8 @@ telescope.setup({
     }
 })
 
+telescope.load_extension('dap')
+{{ if .telescope_fzf_able }}telescope.load_extension('fzf'){{ end }}
 
 vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, {desc = 'Find files'})
 vim.keymap.set('n', '<leader>fgi', telescope_builtin.git_files, {desc = 'Find git files'})
