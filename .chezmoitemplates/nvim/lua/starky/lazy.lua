@@ -85,6 +85,7 @@ require('lazy').setup({
         build = ':TSUpdate',
         dependencies = {
             {'nvim-treesitter/nvim-treesitter-context'},
+            {'nvim-treesitter/nvim-treesitter-textobjects'},
             {'nvim-treesitter/playground'},
         }
     },
