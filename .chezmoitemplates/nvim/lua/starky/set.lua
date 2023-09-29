@@ -26,4 +26,4 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 {{ if (index . "neovim_python3_host_prog") }}vim.g.python3_host_prog = {{ .neovim_python3_host_prog | squote }}{{ end }}
-
+{{ if (index . "neovim_node_host_prog") }}vim.g.node_host_prog = {{ .neovim_node_host_prog | squote }}{{ end }}
