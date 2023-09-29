@@ -14,10 +14,10 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]], {desc = 'Yank into system clipb
 vim.keymap.set("n", "<leader>Y", [["+Y]], {desc = 'Yank to end of line into system clipboard'})
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]], {desc = 'Delete into the void'})
 
-{{- if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "linux" -}}
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", {desc = 'Fuzzy find projects'})
-{{- end }}
 
+{{- end -}}
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", {desc = 'Next item in quickfix list'})
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", {desc = 'Previous item in quickfix list'})
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", {desc = 'Next item in location list'})

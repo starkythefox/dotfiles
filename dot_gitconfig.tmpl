@@ -3,7 +3,7 @@
 	email = {{ .git_email }}
 {{- if (index . "git_signingkey") }}
 	signingkey = {{ .git_signingkey }}
-{{- end }}
+{{ end -}}
 [core]
 	autocrlf = {{ .git_autocrlf }}
 	editor = nvim
@@ -12,10 +12,10 @@
 {{- if eq .chezmoi.os "windows" }}
 [help]
 	format = html
-{{- end }}
+{{ end -}}
 [gpg]
 	program = {{ .git_gpg_program }}
 {{- if eq .chezmoi.os "windows" }}
 [winUpdater]
 	recentlySeenVersion = {{ .git_winupdater_recent_version }}
-{{- end }}
+{{ end -}}
