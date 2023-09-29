@@ -50,4 +50,15 @@ local lspconfig = require('lspconfig')
 
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 
+{{ if .lsp_ccls_installed -}}
+lspconfig.ccls.setup {
+  init_options = {
+    cache = {
+      directory = ".ccls-cache";
+    };
+  }
+}
+{{- end }}
+
+
 lsp.setup()
