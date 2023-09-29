@@ -54,15 +54,6 @@ return require('packer').startup(function(use)
     }
 
     use {
-        'jay-babu/mason-null-ls.nvim',
-        requires = {
-            {'williamboman/mason.nvim'},
-            {'jose-elias-alvarez/null-ls.nvim'},
-            {'nvim-lua/plenary.nvim'},
-        }
-    }
-
-    use {
         'mfussenegger/nvim-dap',
         requires = {
             {'rcarriga/nvim-dap-ui'},
