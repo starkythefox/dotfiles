@@ -7,7 +7,7 @@ local lsp = require('lsp-zero').preset({
 lsp.ensure_installed({
     'angularls', 'bashls', 'cssls', 'eslint', 'html', 'intelephense',
     'java_language_server', 'jsonls', 'lua_ls', 'marksman', 'sqlls',
-    'tsserver', 'yamlls', 'pyright'
+    'tsserver', 'yamlls', 'pylsp'
 })
 
 local cmp = require('cmp')
