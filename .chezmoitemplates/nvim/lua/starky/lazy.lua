@@ -16,13 +16,8 @@ require('lazy').setup({
     {
         'edeneast/nightfox.nvim',
         name = 'nightfox',
-        priority = 1000
+        priority = 1000,
     },
-
---    {
---        "sourcegraph/sg.nvim",
---        dependencies = { "nvim-lua/plenary.nvim" },
---    },
 
     -- LSP
     {
@@ -53,8 +48,8 @@ require('lazy').setup({
             -- Snippets
             {'L3MON4D3/LuaSnip'},
             {'rafamadriz/friendly-snippets'},
-            {'honza/vim-snippets'}
-        }
+            {'honza/vim-snippets'},
+        },
     },
 
     -- SonarLint
@@ -65,7 +60,7 @@ require('lazy').setup({
         dependencies = {
             {'williamboman/mason-lspconfig.nvim'},
             {'mfussenegger/nvim-jdtls'}, -- required
-        }
+        },
     },
 
     -- Telescope
@@ -76,7 +71,7 @@ require('lazy').setup({
             {'nvim-lua/plenary.nvim'},
 {{ if .telescope_fzf_able }}            {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'},{{ end }}
             {'nvim-telescope/telescope-dap.nvim'},
-        }
+        },
     },
 
     -- Treesitter
@@ -87,7 +82,7 @@ require('lazy').setup({
             {'nvim-treesitter/nvim-treesitter-context'},
             {'nvim-treesitter/nvim-treesitter-textobjects'},
             {'nvim-treesitter/playground'},
-        }
+        },
     },
 
     -- git
@@ -103,6 +98,8 @@ require('lazy').setup({
             {'nvim-lua/plenary.nvim'},
             {'nvim-treesitter/nvim-treesitter'}
         }
+            {'nvim-treesitter/nvim-treesitter'},
+        },
     },
     'folke/trouble.nvim',
     'mbbill/undotree',
@@ -112,6 +109,6 @@ require('lazy').setup({
         init = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
-        end
-    }
+        end,
+    },
 })
