@@ -96,12 +96,21 @@ require('lazy').setup({
         'ThePrimeagen/refactoring.nvim',
         dependencies = {
             {'nvim-lua/plenary.nvim'},
-            {'nvim-treesitter/nvim-treesitter'}
-        }
             {'nvim-treesitter/nvim-treesitter'},
         },
     },
-    'folke/trouble.nvim',
+    {
+        'folke/trouble.nvim',
+        dependencies = {
+            {'nvim-tree/nvim-web-devicons'},
+        },
+    },
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = {
+            {'nvim-tree/nvim-web-devicons', lazy = true},
+        },
+    },
     'mbbill/undotree',
     {
         'folke/which-key.nvim',
