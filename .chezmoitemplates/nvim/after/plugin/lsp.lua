@@ -66,7 +66,7 @@ lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 lspconfig.ccls.setup {
   init_options = {
     cache = {
-      directory = ".ccls-cache";
+      directory = "";
     };
   }
 }
