@@ -2,6 +2,28 @@ local treesitter_configs = require('nvim-treesitter.configs')
 local treesitter_context = require('treesitter-context')
 
 treesitter_configs.setup({
+    textobjects = {
+        move = {
+            enable = true,
+            set_jumps = true,
+            goto_next_start = {
+                ["]f"] = "@function.outer",
+                ["]c"] = "@class.outer",
+            },
+            goto_next_end = {
+                ["]F"] = "@function.outer",
+                ["]C"] = "@class.outer",
+            },
+            goto_previous_start = {
+                ["[f"] = "@function.outer",
+                ["[c"] = "@class.outer",
+            },
+            goto_previous_end = {
+                ["[F"] = "@function.outer",
+                ["[C"] = "@class.outer",
+            },
+        },
+    },
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
     ensure_installed = {
         'bash',

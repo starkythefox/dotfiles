@@ -10,8 +10,8 @@ gitsigns.setup({
         changedelete = {text = '~'},
     },
     on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>gp', gitsigns.prev_hunk, {buffer = bufnr, desc = '[G]o to [P]revious Hunk'})
-        vim.keymap.set('n', '<leader>gn', gitsigns.next_hunk, {buffer = bufnr, desc = '[G]o to [N]ext Hunk'})
-        vim.keymap.set('n', '<leader>ph', gitsigns.preview_hunk, {buffer = bufnr, desc = '[P]review [H]unk'})
+        vim.keymap.set('n', ']g', gitsigns.next_hunk, {buffer = bufnr, desc = 'Next Hunk'})
+        vim.keymap.set('n', '[g', gitsigns.prev_hunk, {buffer = bufnr, desc = 'Previous Hunk'})
+        vim.keymap.set('n', '<leader>ph', gitsigns.preview_hunk, {buffer = bufnr, desc = 'Preview Hunk'})
     end,
 })

@@ -23,6 +23,14 @@ lsp.setup_nvim_cmp({
     mapping = cmp_mappings
 })
 
+local diagnostic_goto = function(next, severity)
+  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+  severity = severity and vim.diagnostic.severity[severity] or nil
+  return function()
+    go({ severity = severity })
+  end
+end
+
 lsp.on_attach(function(client, bufnr)
     --    lsp.default_keymaps({buffer = bufnr})
     -- local rc = client.resolved_capabilities
@@ -40,8 +48,12 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, {buffer = bufnr, remap = false, desc = 'Show signature help'})
     vim.keymap.set("n", "gw", function() vim.lsp.buf.workspace_symbol() end, {buffer = bufnr, remap = false, desc = 'Get all the symbols in the workspace'})
     vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, {buffer = bufnr, remap = false, desc = 'Show diagnotics'})
-    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, {buffer = bufnr, remap = false, desc = 'Next diagnostic'})
-    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, {buffer = bufnr, remap = false, desc = 'Previous diagnostic'})
+    vim.keymap.set("n", "]d", diagnostic_goto(true), {buffer = bufnr, remap = false, desc = 'Next diagnostic'})
+    vim.keymap.set("n", "[d", diagnostic_goto(false), {buffer = bufnr, remap = false, desc = 'Previous diagnostic'})
+    vim.keymap.set("n", "]e", diagnostic_goto(true, "ERROR"), {buffer = bufnr, remap = false, desc = "Next error" })
+    vim.keymap.set("n", "[e", diagnostic_goto(false, "ERROR"), {buffer = bufnr, remap = false, desc = "Previous error"})
+    vim.keymap.set("n", "]w", diagnostic_goto(true, "WARN"), {buffer = bufnr, remap = false, desc = "Next warning"})
+    vim.keymap.set("n", "[w", diagnostic_goto(false, "WARN"), {buffer = bufnr, remap = false, desc = "Previous warning"})
     vim.keymap.set("n", "gF", function() vim.lsp.buf.format() end, {buffer = bufnr, remap = false, desc = 'Format code'})
 end)
 
