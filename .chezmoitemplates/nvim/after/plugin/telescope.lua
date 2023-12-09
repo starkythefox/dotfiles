@@ -4,9 +4,9 @@ local telescope_builtin = require('telescope.builtin')
 telescope.setup({
     pickers = {
         find_files = {
-            hidden = true
-        }
-    }
+            hidden = true,
+        },
+    },
 })
 
 telescope.load_extension('dap')
