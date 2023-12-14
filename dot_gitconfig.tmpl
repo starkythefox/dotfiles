@@ -12,7 +12,7 @@
 {{- if eq .chezmoi.os "windows" }}
 [help]
 	format = html
-{{ end -}}
+{{- end }}
 [gpg]
 	program = {{ .git_gpg_program }}
 {{- if eq .chezmoi.os "windows" }}
