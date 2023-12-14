@@ -62,14 +62,29 @@ local lspconfig = require('lspconfig')
 
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 
+lspconfig.pylsp.setup({
+    settings = {
+        pylsp = {
+            plugins = {
+                rope_autoimport = {
+                    enabled = true,
+                },
+                isort = {
+                    enabled = true,
+                },
+            },
+        },
+    },
+})
+
 {{ if .lsp_ccls_installed -}}
-lspconfig.ccls.setup {
+lspconfig.ccls.setup({
   init_options = {
     cache = {
-      directory = "";
-    };
-  }
-}
+      directory = "",
+    },
+  },
+})
 {{- end }}
 
 lspconfig.efm.setup({
