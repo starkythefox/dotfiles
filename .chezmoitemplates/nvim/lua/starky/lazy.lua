@@ -91,7 +91,13 @@ require('lazy').setup({
 
 
     -- Other Utilities
-    'ThePrimeagen/harpoon',
+    {
+        'ThePrimeagen/harpoon',
+        branch='harpoon2',
+        dependencies = {
+            {'nvim-lua/plenary.nvim'},
+        },
+    },
     {
         'ThePrimeagen/refactoring.nvim',
         dependencies = {
