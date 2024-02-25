@@ -11,10 +11,19 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
+vim.opt.fillchars:append {
+    foldopen = '',
+    foldclose = '',
+    foldsep = ' ',
+}
+
+vim.opt.list = true
+
 vim.opt.listchars:append {
-    tab = '> ',
+    tab = '-->',
     trail = '-',
-    nbsp = '+',
+    space = '.',
+    nbsp = '␣',
     eol = '$',
 }
 
