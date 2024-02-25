@@ -27,6 +27,11 @@ vim.opt.listchars:append {
     eol = '$',
 }
 
+vim.opt.foldenable = true
+vim.opt.foldcolumn = 'auto'
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
