@@ -10,16 +10,47 @@ return {
             local wk = require('which-key')
 
             wk.register({
+                g = {name = '+lsp'},
                 ['<C-t>'] = {'Open with trouble'},
-                ["]f"] = {"Next function start"},
-                ["[f"] = {"Previous function start"},
-                ["]c"] = {"Next class start"},
-                ["[c"] = {"Previous class start"},
-                ["]F"] = {"Next function end"},
-                ["[F"] = {"Previous function end"},
-                ["[C"] = {"Previous class end"},
-                ["]C"] = {"Next class end"},
+                [']'] = {
+                    name = '+next',
+                    f = {'Next function start'},
+                    c = {'Next class start'},
+                    F = {'Next function end'},
+                    C = {'Next class end'},
+                },
+                ['['] = {
+                    name = '+previous',
+                    C = {'Previous class end'},
+                    f = {'Previous function start'},
+                    c = {'Previous class start'},
+                    F = {'Previous function end'},
+                },
+                ['<leader>'] = {
+                    name = '+leader',
+                    g = {
+                        name = '+git',
+                        t = {name = '+toggle'},
+                    },
+                    p = {name = '+project'},
+                    r = {
+                        name = '+refactoring',
+                        b = {name = '+block'},
+                    },
+                    t = {name = '+telescope'},
+                    x = {name = '+trouble'},
+                    D = {name = '+dap'},
+                }
             }, {mode = 'n'})
+
+            wk.register({
+                ['<leader>'] = {
+                    name = '+leader',
+                    r = {
+                        {name = 'refactoring'}
+                    },
+                },
+            }, {mode = 'v'})
 
             wk.register({
                 ['<C-p>'] = {'(LSP) Select previons item'},
