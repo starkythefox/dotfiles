@@ -5,8 +5,8 @@ return {
             'mfussenegger/nvim-dap',
         },
         keys = {
-            { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
-            { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} }, 
+            {'<leader>Du', desc = 'Dap UI'},
+            {'<leader>De', mode = {'n', 'v'}, desc = 'Eval'},
         },
         opts = {
             icons = {
@@ -33,6 +33,8 @@ return {
             local dapui = require('dapui')
 
             dapui.setup(opts)
+            vim.keymap.set('n', '<leader>Du', function() dapui.toggle({}) end)
+            vim.keymap.set({'n', 'v'}, '<leader>De', dapui.eval)
 
             vim.keymap.set('n', '<F5>', dap.continue, {desc = 'Debug; Start/Continue'})
             vim.keymap.set('n', '<F1>', dap.step_into, {desc = 'Debug: Step Into'})
@@ -55,7 +57,7 @@ return {
         dependencies = {
             'williamboman/mason.nvim'
         },
-        cmd = {'DapInstall','DapUninstall'},
+        cmd = {'DapInstall', 'DapUninstall'},
         opts = {
             automatic_setup = true,
             handlers = {},

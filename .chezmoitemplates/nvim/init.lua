@@ -1,1 +1,1 @@
-require("starky")
+require('starky')

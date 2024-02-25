@@ -7,30 +7,27 @@ return {
             {'nvim-treesitter/nvim-treesitter-textobjects'},
             {'nvim-treesitter/nvim-treesitter-context'},
         },
-        config = function ()
-            local treesitter = require('nvim-treesitter.configs')
-            local treesitter_context = require('treesitter-context')
-
-            treesitter.setup({
+        opts = {
+            treesitter = {
                 textobjects = {
                     move = {
                         enable = true,
                         set_jumps = true,
                         goto_next_start = {
-                            ["]f"] = "@function.outer",
-                            ["]c"] = "@class.outer",
+                            [']f'] = '@function.outer',
+                            [']c'] = '@class.outer',
                         },
                         goto_next_end = {
-                            ["]F"] = "@function.outer",
-                            ["]C"] = "@class.outer",
+                            [']F'] = '@function.outer',
+                            [']C'] = '@class.outer',
                         },
                         goto_previous_start = {
-                            ["[f"] = "@function.outer",
-                            ["[c"] = "@class.outer",
+                            ['[f'] = '@function.outer',
+                            ['[c'] = '@class.outer',
                         },
                         goto_previous_end = {
-                            ["[F"] = "@function.outer",
-                            ["[C"] = "@class.outer",
+                            ['[F'] = '@function.outer',
+                            ['[C'] = '@class.outer',
                         },
                     },
                 },
@@ -51,8 +48,8 @@ return {
                     enable = true,
                     additional_vim_regex_highlighting = false,
                 },
-            })
-            treesitter_context.setup({
+            },
+            treesitter_context = {
                 enable = true,
                 max_lines = 0,
                 min_window_height = 0,
@@ -63,7 +60,17 @@ return {
                 separator = nil,
                 zindex = 20,
                 on_attach = nil,
-            })
+            },
+        },
+        config = function (_, opts)
+            local treesitter = require('nvim-treesitter.configs')
+            local treesitter_context = require('treesitter-context')
+
+            treesitter.setup(opts.treesitter)
+            treesitter_context.setup(opts.treesitter_context)
+
+            vim.opt.foldmethod = 'expr'
+            vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
         end,
     },
     {

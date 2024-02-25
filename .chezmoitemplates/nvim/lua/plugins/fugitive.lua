@@ -1,8 +1,10 @@
 return {
     {
         'tpope/vim-fugitive',
+        cmd = {'G', 'Git'},
         keys = {
-            {"<leader>git", vim.cmd.Git, desc = 'Open git'}
+            {'<leader>gg', vim.cmd.Git, desc = 'Open git'}
         },
+        config = true,
     },
 }

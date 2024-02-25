@@ -1,21 +1,21 @@
 [user]
-	name = {{ .git_name }}
-	email = {{ .git_email }}
+    name = {{ .git_name }}
+    email = {{ .git_email }}
 {{- if (index . "git_signingkey") }}
-	signingkey = {{ .git_signingkey }}
+    signingkey = {{ .git_signingkey }}
 {{ end -}}
 [core]
-	autocrlf = {{ .git_autocrlf }}
-	editor = nvim
+    autocrlf = {{ .git_autocrlf }}
+    editor = nvim
 [alias]
-	lg = log --graph --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%ad %C(auto,green)%aN %C(auto,reset)%s%C(auto,red)% gD% D' --abbrev-commit --date=relative --all
+    lg = log --graph --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%ad %C(auto,green)%aN %C(auto,reset)%s%C(auto,red)% gD% D' --abbrev-commit --date=relative --all
 {{- if eq .chezmoi.os "windows" }}
 [help]
-	format = html
+    format = html
 {{- end }}
 [gpg]
-	program = {{ .git_gpg_program }}
+    program = {{ .git_gpg_program }}
 {{- if eq .chezmoi.os "windows" }}
 [winUpdater]
-	recentlySeenVersion = {{ .git_winupdater_recent_version }}
+    recentlySeenVersion = {{ .git_winupdater_recent_version }}
 {{ end -}}
