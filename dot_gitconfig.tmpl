@@ -9,6 +9,8 @@
     editor = nvim
 [alias]
     lg = log --graph --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%ad %C(auto,green)%aN %C(auto,reset)%s%C(auto,red)% gD% D' --abbrev-commit --date=relative --all
+    log-graph = log --graph --abbrev-commit --decorate --oneline --date-order
+    log-graph-full = log --graph --abbrev-commit --decorate --date-order --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(dim white)-%an%C(reset)'
 {{- if eq .chezmoi.os "windows" }}
 [help]
     format = html
