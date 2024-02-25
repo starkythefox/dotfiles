@@ -104,6 +104,16 @@ return {
 
             lsp_zero.extend_lspconfig()
 
+            vim.diagnostic.config({
+                virtual_text = {
+                    source = true,
+                },
+                float = {
+                    source = true,
+                },
+                update_in_insert = false,
+            })
+
             local diagnostic_goto = function(next, severity)
                 local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
                 severity = severity and vim.diagnostic.severity[severity] or nil
