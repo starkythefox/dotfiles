@@ -10,6 +10,7 @@ return {
             {'<leader>rf', ':Refactor extract_to_file ', mode = 'x', desc = 'Extract method to file'},
             {'<leader>rv', ':Refactor extract_var ', mode = 'x', desc = 'Extract to variable'},
             {'<leader>ri', ':Refactor inline_var', mode = {'n', 'x'}, desc = 'Inline variable'},
+            {'<leader>rI', ':Refactor inline_func', mode = 'n', desc = 'Inline function'},
             {'<leader>rbh', ':Refactor extract_block', desc = 'Extract block'},
             {'<leader>rbf', ':Refactor extract_block_to_file', desc = 'Extract block to file'},
         },
