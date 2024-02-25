@@ -45,15 +45,18 @@ return {
                 },
                 pickers = {
                     find_files = {
+                        no_ignore = true,
                         hidden = true,
                     },
                     git_files = {
                         hidden = true,
                     },
                     grep_string = {
+                        no_ignore = true,
                         hidden = true,
                     },
                     live_grep = {
+                        no_ignore = true,
                         hidden = true,
                     },
                 },
