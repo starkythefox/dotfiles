@@ -114,6 +114,17 @@ return {
                 update_in_insert = false,
             })
 
+            local diagnostics_active = true
+            local toggle_diagnotics = function ()
+                if diagnostics_active then
+                    vim.diagnostic.hide()
+                else
+                    vim.diagnostic.show()
+                end
+
+                diagnostics_active = not diagnostics_active
+            end
+
             local diagnostic_goto = function(next, severity)
                 local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
                 severity = severity and vim.diagnostic.severity[severity] or nil
@@ -126,16 +137,17 @@ return {
                 local opts = {buffer = bufnr, remap = false}
 
                 vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, vim.tbl_extend('force', opts, {desc = 'Display hover info'}))
-                vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, vim.tbl_extend('force', opts, {desc = 'Go to definition of the symbol'}))
-                vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, vim.tbl_extend('force', opts, {desc = 'Go to declaration of the symbol'}))
-                vim.keymap.set('n', 'gc', function() vim.lsp.buf.code_action() end, vim.tbl_extend('force', opts, {desc = 'Select code action available'}))
-                vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, vim.tbl_extend('force', opts, {desc = 'List all implementations for the symbol'}))
-                vim.keymap.set('n', 'gr', function() vim.lsp.buf.references() end, vim.tbl_extend('force', opts, {desc = 'List all references of the symbol'}))
-                vim.keymap.set('n', 'gn', function() vim.lsp.buf.rename() end, vim.tbl_extend('force', opts, {desc = 'Rename the symbol'}))
-                vim.keymap.set('n', 'gs', function() vim.lsp.buf.signature_help() end, vim.tbl_extend('force', opts, {desc = 'Display signature about the symbol'}))
-                vim.keymap.set('n', 'gw', function() vim.lsp.buf.workspace_symbol() end, vim.tbl_extend('force', opts, {desc = 'Get all the symbols in the workspace'}))
-                vim.keymap.set('n', 'gl', function() vim.diagnostic.open_float() end, vim.tbl_extend('force', opts, {desc = 'Show diagnotics'}))
-                vim.keymap.set('n', 'gF', function() vim.lsp.buf.format() end, vim.tbl_extend('force', opts, {desc = 'Format code'}))
+                vim.keymap.set('n', '<leader>ld', function() vim.lsp.buf.definition() end, vim.tbl_extend('force', opts, {desc = 'Go to definition of the symbol'}))
+                vim.keymap.set('n', '<leader>lD', function() vim.lsp.buf.declaration() end, vim.tbl_extend('force', opts, {desc = 'Go to declaration of the symbol'}))
+                vim.keymap.set('n', '<leader>lc', function() vim.lsp.buf.code_action() end, vim.tbl_extend('force', opts, {desc = 'Select code action available'}))
+                vim.keymap.set('n', '<leader>li', function() vim.lsp.buf.implementation() end, vim.tbl_extend('force', opts, {desc = 'List all implementations for the symbol'}))
+                vim.keymap.set('n', '<leader>lr', function() vim.lsp.buf.references() end, vim.tbl_extend('force', opts, {desc = 'List all references of the symbol'}))
+                vim.keymap.set('n', '<leader>ln', function() vim.lsp.buf.rename() end, vim.tbl_extend('force', opts, {desc = 'Rename the symbol'}))
+                vim.keymap.set('n', '<leader>ls', function() vim.lsp.buf.signature_help() end, vim.tbl_extend('force', opts, {desc = 'Display signature about the symbol'}))
+                vim.keymap.set('n', '<leader>lw', function() vim.lsp.buf.workspace_symbol() end, vim.tbl_extend('force', opts, {desc = 'Get all the symbols in the workspace'}))
+                vim.keymap.set('n', '<leader>ll', function() vim.diagnostic.open_float() end, vim.tbl_extend('force', opts, {desc = 'Show diagnotics'}))
+                vim.keymap.set('n', '<leader>lF', function() vim.lsp.buf.format() end, vim.tbl_extend('force', opts, {desc = 'Format code'}))
+                vim.keymap.set('n', '<leader>lt', toggle_diagnotics, vim.tbl_extend('force', opts, {desc = 'Toggle diagnostics'}))
                 vim.keymap.set('n', ']d', diagnostic_goto(true), vim.tbl_extend('force', opts, {desc = 'Next diagnostic'}))
                 vim.keymap.set('n', '[d', diagnostic_goto(false), vim.tbl_extend('force', opts, {desc = 'Previous diagnostic'}))
                 vim.keymap.set('n', ']e', diagnostic_goto(true, 'ERROR'), vim.tbl_extend('force', opts, {desc = 'Next error'}))
@@ -143,6 +155,8 @@ return {
                 vim.keymap.set('n', ']w', diagnostic_goto(true, 'WARN'), vim.tbl_extend('force', opts, {desc = 'Next warning'}))
                 vim.keymap.set('n', '[w', diagnostic_goto(false, 'WARN'), vim.tbl_extend('force', opts, {desc = 'Previous warning'}))
                 vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, vim.tbl_extend('force', opts, {desc = 'Show signature help'}))
+                vim.keymap.set('v', '<leader>lc', function() vim.lsp.buf.code_action() end, vim.tbl_extend('force', opts, {desc = 'Code actions'}))
+                vim.keymap.set('v', '<leader>lF', function() vim.lsp.buf.format() end, vim.tbl_extend('force', opts, {desc = 'Code actions'}))
             end)
 
             mason_lspconfig.setup({
@@ -227,6 +241,12 @@ return {
                         java = {
                             configuration = {
                                 runtimes = {
+{{- range .java_runtimes }}
+                                    {
+                                        name = {{.name | squote}},
+                                        path = {{.path | squote}},
+                                    },
+{{- end }}
                                 },
                             },
                         },
