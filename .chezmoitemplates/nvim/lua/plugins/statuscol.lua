@@ -21,7 +21,7 @@ return {
                     },
                     {
                         sign = {namespace = {"gitsign*"}, maxwidth = 1, colwidth = 1, auto = false},
-                        click = "v:lua.ScSa"
+                        click = "v:lua.ScSa",
                     },
                 }
             })
