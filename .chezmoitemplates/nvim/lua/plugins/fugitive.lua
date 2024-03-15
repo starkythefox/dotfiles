@@ -5,6 +5,5 @@ return {
         keys = {
             {'<leader>gg', vim.cmd.Git, desc = 'Open git'}
         },
-        config = true,
     },
 }
