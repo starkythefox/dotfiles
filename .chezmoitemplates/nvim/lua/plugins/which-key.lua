@@ -28,6 +28,7 @@ return {
                 },
                 ['<leader>'] = {
                     name = '+leader',
+                    c = {name = '+colorizer'},
                     g = {
                         name = '+git',
                         t = {name = '+toggle'},
