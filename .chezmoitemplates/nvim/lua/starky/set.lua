@@ -12,6 +12,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.opt.fillchars:append {
+    fold = ' ',
     foldopen = '',
     foldclose = '',
     foldsep = ' ',
@@ -31,6 +32,8 @@ vim.opt.foldenable = true
 vim.opt.foldcolumn = 'auto'
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldtext = ''
 
 vim.opt.swapfile = false
 vim.opt.backup = false
