@@ -1,4 +1,4 @@
-vim.api.nvim_exec('language {{ .neovim_locale }}', true)
+vim.api.nvim_exec2('language {{ .neovim_locale }}', {output = true})
 
 vim.opt.number = true
 vim.opt.relativenumber = true
