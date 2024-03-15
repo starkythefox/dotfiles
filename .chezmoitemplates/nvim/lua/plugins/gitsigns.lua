@@ -19,18 +19,6 @@ return {
                     vim.keymap.set('n', ']g', gitsigns.next_hunk, {buffer = bufnr, desc = 'Next Hunk'})
                     vim.keymap.set('n', '[g', gitsigns.prev_hunk, {buffer = bufnr, desc = 'Previous Hunk'})
 
-                    vim.keymap.set('n', ']c', function()
-                        if vim.wo.diff then return ']c' end
-                        vim.schedule(function() gitsigns.next_hunk() end)
-                        return '<Ignore>'
-                    end, {expr=true})
-
-                    vim.keymap.set('n', '[c', function()
-                        if vim.wo.diff then return '[c' end
-                        vim.schedule(function() gitsigns.prev_hunk() end)
-                        return '<Ignore>'
-                    end, {expr=true})
-
                     vim.keymap.set('n', '<leader>gs', gitsigns.stage_hunk, {desc = 'Gitsigns: Stage hunk'})
                     vim.keymap.set('n', '<leader>gr', gitsigns.reset_hunk, {desc = 'Gitsigns: Reset hunk'})
                     vim.keymap.set('n', '<leader>gS', gitsigns.stage_buffer, {desc = 'Gitsigns: Stage buffer'})
