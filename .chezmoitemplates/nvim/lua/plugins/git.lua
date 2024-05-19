@@ -1,5 +1,25 @@
 return {
     {
+        'tpope/vim-fugitive',
+        cmd = {'G', 'Git'},
+        keys = {
+            {'<leader>gg', vim.cmd.Git, desc = 'Open Fugitive'}
+        },
+    },
+    {
+        'NeogitOrg/neogit',
+        cmd = {'Neogit'},
+        keys = {
+            {'<leader>ng', vim.cmd.Neogit, desc = 'Open Neogit'}
+        },
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'sindrets/diffview.nvim',
+            'nvim-telescope/telescope.nvim',
+        },
+        config = true,
+    },
+    {
         'lewis6991/gitsigns.nvim',
         event = {'BufReadPre', 'BufNewFile'},
         opts = function()
@@ -37,5 +57,5 @@ return {
             }
         end,
         config = true,
-    }
+    },
 }
