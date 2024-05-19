@@ -52,5 +52,11 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = '80'
 
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'java' },
+    desc = 'Set colorcolumn to 120 for Java',
+    callback = function () vim.opt_local.colorcolumn = '120' end,
+})
+
 {{ if (index . "neovim_python3_host_prog") }}vim.g.python3_host_prog = {{ .neovim_python3_host_prog | squote }}{{ end }}
 {{ if (index . "neovim_node_host_prog") }}vim.g.node_host_prog = {{ .neovim_node_host_prog | squote }}{{ end }}
