@@ -78,7 +78,9 @@ return {
             vim.keymap.set('n', '<leader>tl', builtin.live_grep, {desc = 'Live grep'})
             vim.keymap.set('n', '<leader>tb', builtin.buffers, {desc = 'Buffers'})
             vim.keymap.set('n', '<leader>th', builtin.help_tags, {desc = 'Help tags'})
-            vim.keymap.set('n', '<leader>ts', function() builtin.grep_string({search = vim.fn.input('Grep > ')}) end, {desc = 'Grep string'})
+            vim.keymap.set('n', '<leader>ts', function() builtin.grep_string({search = vim.fn.input('Grep > ')}) end, {desc = 'Search string'})
+            vim.keymap.set('n', '<leader>tw', function() builtin.grep_string({search = vim.fn.expand('<cword')}) end, {desc = 'Search word'})
+            vim.keymap.set('n', '<leader>tW', function() builtin.grep_string({search = vim.fn.expand('<cWORD')}) end, {desc = 'Search WORD'})
         end,
     },
 }
