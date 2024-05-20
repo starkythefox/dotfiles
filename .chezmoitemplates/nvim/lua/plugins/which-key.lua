@@ -10,7 +10,6 @@ return {
             local wk = require('which-key')
 
             wk.register({
-                g = {name = '+lsp'},
                 ['<C-t>'] = {'Open with trouble'},
                 [']'] = {
                     name = '+next',
@@ -29,6 +28,7 @@ return {
                 ['<leader>'] = {
                     name = '+leader',
                     c = {name = '+colorizer'},
+                    l = {name = '+lsp'},
                     g = {
                         name = '+git',
                         t = {name = '+toggle'},
